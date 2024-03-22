@@ -1,0 +1,11 @@
+--- a/netlink/nss_nl.c.bak	2023-10-04 11:32:00.000000000 +0300
++++ b/netlink/nss_nl.c	2024-03-22 03:17:27.659009538 +0300
+@@ -475,7 +475,7 @@
+ 	/*
+ 	 * validate the common message header version & magic
+ 	 */
+-	cm = info->userhdr;
++	cm = genl_info_userhdr(info);
+ 	if (nss_nlcmn_chk_ver(cm, family->version) == false) {
+ 		nss_nl_error("%d, %s: version mismatch (%d)\n", pid, family->name, cm->version);
+ 		return NULL;
